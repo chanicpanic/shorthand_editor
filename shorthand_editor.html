@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Shorthand editor</title>
+  <link rel="stylesheet" href="style/shorthand_editor.css" /> 
+  <link rel="stylesheet" type="text/css" href="dialog-polyfill/dialog-polyfill.css" />
+</head>
+<body>
+<dialog id="saveDialog">
+  <form id="newPageForm" method="dialog">
+    <p>
+      <label>Page name: </label>
+      <input id="saveName" autofocus="autofocus">
+    </p>
+    <button value="cancel">Cancel</button>
+    <button value="default" id="saveBtn">Add a page</button>
+  </form>
+</dialog>
+
+<div class="topnav">
+  <div>
+    <form>
+    <select id="saved_page_list" onChange="openPage()"></select>
+    </form>
+
+    <button id="newPageBtn" onClick="addNewPage()">New page</button>
+    <button id="savePageBtn" onClick="savePages()">Save</button>
+    <button id="startAnimBtn"></button>
+    <button id="flipBtn"></button>
+    <button id="svgDownloadBtn"></button>
+    <button id="pngDownloadBtn"></button>
+    <button id="animDownloadBtn"></button>
+  </div>
+
+  <div id="myLinks">
+    <div style="display: none;">
+    <label>Save this page as:</label>
+    <input id="page_name">
+    <button id="save_button">Save</button>
+    </div>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()"></a>
+</div>
+
+<div class="inputarea">
+  <textarea id="input" autofocus="autofocus"></textarea>
+</div>
+
+<div id="svg_viewer" class="viewer"></div>
+<script type="text/javascript" src="point.js"></script>
+<script type="text/javascript" src="char.js"></script>
+<script type="text/javascript" src="gregg.js"></script>
+<script type="text/javascript" src="interpreter.js"></script>
+<script type="text/javascript" src="shorthand_editor.js"></script>
+<script type="text/javascript" src="dialog-polyfill/dialog-polyfill.js"></script>
+<script>
+  var dialog = document.querySelector('dialog');
+  dialogPolyfill.registerDialog(dialog);
+</script>
+</body>
+
+</html>
+
